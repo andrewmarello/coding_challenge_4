@@ -46,14 +46,8 @@ function applyCustomerDiscount(price, customerType) {
         additionalDiscount = 0; // No additional discount
     } return price - (price * additionalDiscount);
 }
-console.log("=== Product List with Final Prices ===");
-for (const product of products) {
-    console.log(`${product.name} (${product.category}) - $${product.finalPrice.toFixed(2)}`);
-}
 
 // Step 5: Use for or while loops to simulate checkout process for 3 customers
-
-
 
 console.log("=== Checkout Simulation ===\n");
 
@@ -78,3 +72,18 @@ for(let i = 0; i < customerTypes.length; i++) {
 
 // Step 6: Log each key/value pair for a single product after discounts are applied
 
+console.log("\n=== Single Product Details ===");
+let product = products[1];
+for (let key in product) {
+    console.log(`${key}: ${product[key]}`);
+}
+
+// Step 7: Use object.entries() and destructuring to log all products after inventory is updated.
+
+console.log("\n=== All Product Info ===");
+for (const product of products) {
+    for (const [key, value] of Object.entries(product)) {
+        console.log(`${key}: ${value}`);
+    }
+    console.log("---");
+}
